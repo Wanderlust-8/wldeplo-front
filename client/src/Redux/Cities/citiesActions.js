@@ -59,7 +59,7 @@ export const searchCities = (word) => {
   return async (dispatch) => {
     try {
       const response = await axios.get(
-        "http://localhost:3002/cities?title=${word}"
+        `http://localhost:3002/cities?title=${word}`
       );
       const data = response.data;
       return dispatch({

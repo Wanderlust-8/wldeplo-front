@@ -1,6 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunkMiddleware from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
 import activitysReducer from "./Activity/activityReducer";
 import airlinesReducer from "./Airlines/airlinesReducer";
 import citiesReducer from "./Cities/citiesReducer";

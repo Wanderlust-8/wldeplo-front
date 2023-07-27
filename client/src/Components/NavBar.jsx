@@ -1,15 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext} from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { BsCart4 } from "react-icons/bs";
 import { authContext } from "../Context/authContext";
 import { CgProfile } from "react-icons/cg";
-import { useAuth } from "../Context/authContext";
 
 function NavBar() {
   const cartItems = useSelector((state) => state.carrito.cart);
-  const { currentUser, setCurrentUser, logout } = useContext(authContext);
+  const { currentUser, logout } = useContext(authContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -94,6 +93,7 @@ function NavBar() {
                 {currentUser.photoURL ? (
                   <img
                     src={currentUser.photoURL}
+                    alt="foto"
                     className="rounded-full w-10 h-10"
                   />
                 ) : (

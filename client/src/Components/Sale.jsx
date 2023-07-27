@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
 import { ImLocation } from "react-icons/im";
 import { AiFillCalendar } from "react-icons/ai";
 
 function Sale({ paquetes }) {
   // console.log(paquetes[0]);
-  const [filtrados, SetFiltrados] = useState([]);
+
 
   const filtrado = paquetes.slice(0, 3);
 
@@ -53,10 +52,10 @@ function Sale({ paquetes }) {
               {" "}
               {"$" + paquete.standarPrice}
             </h1>
-            <span className="  fontPoppinsB text-left m-1  text-red-600">
+            <span className="fontPoppinsB text-left m-1  text-red-600">
               {"USD$" + " " + paquete.promotionPrice + ",00"}
             </span>
-            <span className=" text-xs text-gray-600">/Per person</span>
+            <span className="text-xs text-gray-600">/Per person</span>
 
             <h1 className="text-orange-600 fontPoppinsB bg-orange-200 w-12 rounded-[6px]">
               -15%

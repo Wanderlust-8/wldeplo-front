@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { FcGoogle } from "react-icons/fc";
 import { GrGithub } from "react-icons/gr";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import logo from "../Utils/Img/logo.png";
 import sideImage from "../Utils/Img/side.png";
-import { fetchPackages } from "../Redux/Packages/packagesActions";
 import { loginUser } from "../Redux/Users/usersActions";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/authContext";
@@ -27,7 +25,6 @@ const LoginPage = () => {
     error,
     currentUser,
     signInWithGoogle,
-    signInWithFacebook,
     signInWithGithub,
     resetError,
   } = useAuth();
@@ -85,14 +82,14 @@ const LoginPage = () => {
     }
   };
 
-  const handleFacebook = async () => {
-    try {
-      await signInWithFacebook();
-    } catch (error) {
-      setErrorMsg(error.message);
-      console.log(error);
-    }
-  };
+  // const handleFacebook = async () => {
+  //   try {
+  //     await signInWithFacebook();
+  //   } catch (error) {
+  //     setErrorMsg(error.message);
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <div className="flex h-screen">

@@ -11,7 +11,6 @@ import {
   setDurationFilter,
   setPriceFilter,
   clearSearchView,
-  reset
 } from "../Redux/Packages/packagesActions";
 import { useLocation } from "react-router-dom";
 import Footer from "../Components/Footer";
@@ -29,7 +28,7 @@ export default function SearchResult() {
   const packagesList = useSelector((state) => state.packages.packagesList);
   const cities = useSelector((state) => state.cities.citiesList);
   const searchQuery = new URLSearchParams(location.search).get("Country");
-  // const filters = useSelector((state) => state.packages.filters);
+
 
   useEffect(() => {
     const loadData = async () => {
@@ -47,12 +46,6 @@ export default function SearchResult() {
     window.scrollTo(0, 0);
     dispatch(fetchCities());
   }, [dispatch]);
-
-  // useEffect(()=>{
-  //   return () =>{
-  //     dispatch(clearSearchView(true))
-  //   }
-  // },[])
 
   function handleFilterByCity(e) {
     dispatch(FilterPackagesByCity(e.target.value));

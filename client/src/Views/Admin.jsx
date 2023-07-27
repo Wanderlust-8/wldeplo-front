@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPackages } from "../Redux/Packages/packagesActions";
 import { fetchAirlines } from "../Redux/Airlines/airlinesActions";
 import { fetchCities } from "../Redux/Cities/citiesActions";
 import { fetchContinents } from "../Redux/Continent/continentActions";
@@ -14,19 +13,13 @@ import FormNewAirline from "../Components/FormNewAirline";
 import FormNewHoltel from "../Components/FormNewHotel";
 
 const Form = () => {
-  const packages = useSelector((state) => state.packages.packagesList);
   const continents = useSelector((state) => state.continents.continentsList);
-  // console.log("Continents:", continents)
   const countries = useSelector((state) => state.countries.countriesList);
   const cities = useSelector((state) => state.cities.citiesList);
-  // console.log("cities:", cities)
   const hotels = useSelector((state) => state.hotels.hotelsList);
   const airlines = useSelector((state) => state.airlines.airlinesList);
-  const activitys = useSelector((state) => state.activitys.activitysList);
   const cityOrigin=useSelector((state)=> state.cities.citiesOrigin)
-  // console.log("cityorigin:", cityOrigin)
 
-  
 
 
   const dispatch = useDispatch();
@@ -112,40 +105,40 @@ const Form = () => {
     }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    try {
-      dispatch(addPackages(input));
-      setInput({
-        idTypePackage: 1,
-        title: "",
-        description: "",
-        initialDate: "",
-        finalDate: "",
-        totalLimit: 0,
-        standarPrice: 0,
-        promotionPrice: 0,
-        service: "Translado aeropuerto - hotel -aeropuerto",
-        duration: "",
-        originCity: "",
-        idAirline: 0,
-        outboundFlight: "",
-        returnFlight: "",
-        image:
-          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/40/82/4b/aerial-view.jpg?w=700&h=-1&s=1",
-        qualification: "9.4",
-        idContinent: 0,
-        idCountry: 3,
-        idCity: "",
-        idHotel: 0,
-        activitys: [],
-      });
-      alert("Package created successfully");
-    } catch (error) {
-      console.error(error);
-      alert("Error occurred while creating the package");
-    }
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     dispatch(addPackages(input));
+  //     setInput({
+  //       idTypePackage: 1,
+  //       title: "",
+  //       description: "",
+  //       initialDate: "",
+  //       finalDate: "",
+  //       totalLimit: 0,
+  //       standarPrice: 0,
+  //       promotionPrice: 0,
+  //       service: "Translado aeropuerto - hotel -aeropuerto",
+  //       duration: "",
+  //       originCity: "",
+  //       idAirline: 0,
+  //       outboundFlight: "",
+  //       returnFlight: "",
+  //       image:
+  //         "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/40/82/4b/aerial-view.jpg?w=700&h=-1&s=1",
+  //       qualification: "9.4",
+  //       idContinent: 0,
+  //       idCountry: 3,
+  //       idCity: "",
+  //       idHotel: 0,
+  //       activitys: [],
+  //     });
+  //     alert("Package created successfully");
+  //   } catch (error) {
+  //     console.error(error);
+  //     alert("Error occurred while creating the package");
+  //   }
+  // };
 
 
   const calculatePromotionPrice = () => {

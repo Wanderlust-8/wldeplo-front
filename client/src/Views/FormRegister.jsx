@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { addUser } from "../Redux/Users/usersActions";
 import { FcGoogle } from "react-icons/fc";
 import { GrGithub } from "react-icons/gr";
@@ -17,7 +17,6 @@ const RegisterPage = () => {
   const {
     signInWithGoogle,
     signInWithGithub,
-    signInWithFacebook,
     register,
     currentUser,
     login,
@@ -25,14 +24,13 @@ const RegisterPage = () => {
     resetError,
   } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
-  const [userCreated, setUserCreated] = useState(false);
+  const [ setUserCreated] = useState(false);
   const [isValid, setIsValid] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const idUser = useSelector((state) => state.users.user);
-  const idCart = useSelector((state) => state.carrito.idCart);
+  
 
   const [user, setUser] = useState({
     profile: 1,
@@ -154,18 +152,18 @@ const RegisterPage = () => {
     }
   };
 
-  const handleFacebook = async () => {
-    try {
-      const result = await signInWithFacebook();
-      if (result.success === true) {
-        dispatch(addUser(result.user));
-        setUserCreated(true);
-      }
-    } catch (error) {
-      setErrorMsg(error.message);
-      console.log(error);
-    }
-  };
+  // const handleFacebook = async () => {
+  //   try {
+  //     const result = await signInWithFacebook();
+  //     if (result.success === true) {
+  //       dispatch(addUser(result.user));
+  //       setUserCreated(true);
+  //     }
+  //   } catch (error) {
+  //     setErrorMsg(error.message);
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <div className="flex h-screen">

@@ -117,7 +117,7 @@ function Detail() {
   //! german
   async function guardarEnBDD() {
     if (idCart) {
-      const response1 = await fetch(
+       await fetch(
         `http://localhost:3002/shoppingCar/${idCart}`,
         {
           method: "PUT",
