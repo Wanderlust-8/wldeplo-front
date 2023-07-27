@@ -1,4 +1,3 @@
-
 import {
   FETCH_PACKAGES,
   ADD_PACKAGE,
@@ -66,9 +65,6 @@ const packagesReducer = (state = initialState, action) => {
           packagesSearch:[],
           packagesList:[]
         }
-
-
-
       case SET_CITY_FILTER:
         let filteredByCity;
         
@@ -107,42 +103,6 @@ const packagesReducer = (state = initialState, action) => {
           packagesSearch:action.payload === "Todos" ? state.packagesFiltered : orderDuration,
           packagesFiltered:action.payload === "Todos" ? state.packagesFiltered : orderDuration,
         }
-      // let durationOrden = action.payload;
-      // if (durationOrden === "Menor-Mayor") {
-      //   return {
-      //     ...state,
-      //     packagesFiltered: state.packagesFiltered.sort((a, b) => a.duration - b.duration),
-      //     filters: {
-      //       ...state.filters,
-      //       durationFilter: durationOrden,
-      //     },
-      //   };
-      // } else if (durationOrden === "Mayor-Menor") {
-      //   return {
-      //     ...state,
-      //     packagesFiltered: state.packagesFiltered.sort((a, b) => b.duration - a.duration),
-      //     filters: {
-      //       ...state.filters,
-      //       durationFilter: durationOrden,
-      //     },
-      //   };
-      // }
-      // // Si el durationFilter no coincide con ninguna opción, devolvemos el estado tal como está.
-      // return state;
-
-       
-
-       
-    // case SET_DURATION_FILTER:
-    //   return {
-    //     ...state,
-    //     durationFilter: action.payload,
-    //     packagesFiltered: applyFilters(state, {
-    //       durationFilter: action.payload,
-    //     }),
-    //   };
-    
- 
     case SET_PRICE_FILTER:
  
       let orderPrice = [...state.packagesList];
@@ -162,68 +122,11 @@ const packagesReducer = (state = initialState, action) => {
           packagesSearch: action.payload === "precios" ? state.packagesFiltered : orderPrice,
           packagesFiltered:action.payload === "precios" ? state.packagesFiltered : orderPrice
         }
-
-     
-
-    //   const sortFilter = action.payload;
-    // if (sortFilter === "MenorPrecio") {
-    //     return {
-    //       ...state,
-    //       packagesFiltered: state.packagesFiltered.sort((a, b) => a.standarPrice - b.standarPrice),
-    //       filters: {
-    //         ...state.filters,
-    //         priceFilter: sortFilter,
-    //       },
-    //     };
-    //   } else if (sortFilter === "MayorPrecio") {
-    //     return {
-    //       ...state,
-    //       packagesFiltered: state.packagesFiltered.sort((a, b) => b.standarPrice - a.standarPrice),
-    //       filters: {
-    //         ...state.filters,
-    //         priceFilter: sortFilter,
-    //       },
-    //     };
-    //   }
-      // Si el sortFilter no coincide con ninguna opción, devolvemos el estado tal como está.
-      // return state;
   
     default:
       return state;
   }
 };
 
-// function applyFilters(state, newFilters) {
-//   const filters = {
-//     ...state,
-//     ...newFilters,
-//   };
-
-//   let results = [...state.packagesList];
-
-//   if (filters.cityFilter) {
-//     results = results.filter(
-//       (packages) => packages.idCity === Number(filters.cityFilter)
-//     );
-//   }
-
-//   if (filters.durationFilter && filters.durationFilter !== "Todos") {
-//     if (filters.durationFilter === "Menor-Mayor") {
-//       results = [...results].sort((a, b) => a.duration - b.duration);
-//     } else if (filters.durationFilter === "Mayor-Menor") {
-//       results = [...results].sort((a, b) => b.duration - a.duration);
-//     }
-//   }
-
-//   if (filters.priceFilter && filters.priceFilter !== "TodosPrecio") {
-//     if (filters.priceFilter === "MenorPrecio") {
-//       results = [...results].sort((a, b) => a.standarPrice - b.standarPrice);
-//     } else if (filters.priceFilter === "MayorPrecio") {
-//       results = [...results].sort((a, b) => b.standarPrice - a.standarPrice);
-//     }
-//   }
-
-//   return results;
-// }
 
 export default packagesReducer;
